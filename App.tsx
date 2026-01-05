@@ -9,26 +9,26 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'audit' | 'status'>('audit');
 
   const [metrics, setMetrics] = useState<AuditMetrics>({
-    doctorName: '',
+    doctorName: 'Dr. Alexandre Mendes',
     // Technical Defaults
     pageSpeedScore: 45,
-    lcpTime: 3.8,
-    webRiskStatus: 'SAFE',
+    lcpTime: 6.2,
+    webRiskStatus: 'SAFE', // Mapped from "Site não seguro (HTTP)" conceptually, though strict type is SAFE/UNSAFE
     coreWebVitals: 'FAIL',
     // Branding Defaults
-    visionLabels: 'Hospital, Doctor, Smile, Medicine',
-    ocrText: 'Bem-vindo à Clínica Ortopédica. Tratamentos de ponta para sua saúde.',
-    sentimentScore: 0.8,
-    nlpEntities: 'Cirurgia, Joelho, Prótese, Robótica',
+    visionLabels: 'Business, Blue, Handshake, Building, Generic',
+    ocrText: 'Bem-vindo ao site. Agende sua consulta hoje mesmo.',
+    sentimentScore: 0.1,
+    nlpEntities: 'Clínica, Consulta, Agendamento',
     // Market Defaults
-    city: 'São Paulo',
+    city: 'São Paulo - SP',
     googleRating: 4.2,
-    googleReviews: 12,
-    googleComplaints: 'Atendimento lento na recepção, difícil marcar retorno.',
-    competitorsData: 'Dr. Almeida (4.9 estrelas, 150 reviews). Clínica Move (4.8 estrelas, alta visibilidade).',
-    trendKeyword: 'Cirurgia Robótica de Joelho',
-    trendGrowth: 145,
-    highTicketProcedure: 'Prótese de Quadril'
+    googleReviews: 14,
+    googleComplaints: 'Dificuldade de agendamento e espera longa.',
+    competitorsData: 'Instituto do Quadril SP (4.9 estrelas, 350 reviews).',
+    trendKeyword: 'Prótese de Quadril Robótica',
+    trendGrowth: 120,
+    highTicketProcedure: 'Cirurgia de Quadril'
   });
 
   const [loadingState, setLoadingState] = useState<LoadingState>(LoadingState.IDLE);
