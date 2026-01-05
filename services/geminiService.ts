@@ -5,6 +5,24 @@ import { AuditMetrics, AnalysisResult } from "../types";
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 const modelId = "gemini-3-flash-preview";
 
+export const testGeminiConnection = async (): Promise<string> => {
+  try {
+    const response = await ai.models.generateContent({
+      model: modelId,
+      contents: "Responda apenas com a palavra 'OK' se você estiver recebendo esta mensagem.",
+    });
+    
+    if (!response.text) {
+      throw new Error("Resposta vazia da API");
+    }
+    
+    return response.text;
+  } catch (error) {
+    console.error("Connection Test Error:", error);
+    throw error;
+  }
+};
+
 const runPhase = async (systemInstruction: string, prompt: string, jsonMode: boolean = false): Promise<string> => {
   try {
     const response = await ai.models.generateContent({
